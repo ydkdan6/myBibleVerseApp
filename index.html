@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Verse of the Day App</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!--Animate css-->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    
+    <div class="main">
+        <div class="verse-container">
+            <h1 class="animate__animated animate__backInDown">Bible Verse</h1>
+            <p class="animate__animated animate__backInUp animate__delay-2s">of the Day</p>
+            <h3 id="dateToday" class="animate__animated animate__lightSpeedInRight animate__delay-7s"></h3>
+
+            <blockquote id="verse"></blockquote>
+            <p id="verse-reference"></p>
+
+            <button id="copy-button" onclick="copyVerse()" class="animate__animated animate__rollIn animate__delay-4s">Copy Quote</button>
+        </div>
+    </div>
+    <script>
+        function copyVerse() {
+            const verseText = verseElement.textContent;
+            const referenceText = verseReferenceElement.textContent;
+            const combinedText = `${verseText}\n${referenceText}`;
+
+            navigator.clipboard.writeText(combinedText)
+                .then(() => alert('Verse copied successfully!'))
+                .catch(err => console.error('Error copying verse: ', err));
+        }
+    </script>
+
+    <!-- Script JS -->
+    <script src="./script.js"></script>
+</body>
+</html>
